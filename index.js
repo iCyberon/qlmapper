@@ -1,6 +1,8 @@
 var _ = require('lodash');
 
 module.exports = function(results, objects, strict) {
+  strict = !!strict;
+
   if (!results)
     return (strict) ? undefined : {};
 
@@ -32,17 +34,18 @@ module.exports = function(results, objects, strict) {
       obj[group] = {};
     });
 
+    // Iterate over object properties
     var r = new RegExp('__(.+?)__(.+)');
     _.forOwn(results, function(value, key) {
       var matches = r.exec(key);
       if (matches !== null && _.has(obj, matches[1]) && matches.length == 3 && matches[1].length > 0 && matches[2].length > 0) {
-        obj[matches[1]][matches[2]] = value;
+        if ((!value && !strict) || value)
+          obj[matches[1]][matches[2]] = value;
       } else {
         obj[key] = value;
       }
     });
 
-    return obj;
+    return (strict) ? _.omit(obj, _.isEmpty) : obj;
   }
-
 };
