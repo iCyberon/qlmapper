@@ -1,0 +1,41 @@
+{
+  "name": "qlmapper",
+  "version": "1.0.0",
+  "description": "Generate objects from SQL output with grouping and mapping.",
+  "url" : "https://github.com/icyberon/qlmapper",
+  "contributors": [
+    {
+      "name": "Vahagn Mkrtchyan",
+      "email": "me@icyberon.com",
+      "url": "http://icyberon.com/"
+    }
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "should": "^8.1.1"
+  },
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:icyberon/qlmapper.git"
+  },
+  "keywords": [
+    "SQL",
+    "Postgres",
+    "Mapping",
+    "Object"
+  ],
+  "homepage": "https://github.com/icyberon/qlmapper",
+  "author": "Vahagn Mkrtchyan <me@icyberon.com> (http://icyberon.com)",
+  "license": "MIT"
+}
