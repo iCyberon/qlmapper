@@ -46,6 +46,6 @@ module.exports = function(results, objects, strict) {
       }
     });
 
-    return (strict) ? _.omit(obj, _.isEmpty) : obj;
+    return (strict) ? _(obj).omitBy(_.isEmpty).omitBy(_.isUndefined).omitBy(_.isNull) : obj;
   }
 };
