@@ -15,6 +15,10 @@ module.exports = function(results, objects, strict) {
     else
       return results;
 
+  var predicate = function(value, index, array) {
+    return _.isEmpty(value) && _.isObject(value);
+  };
+
   if (_.isPlainObject(results)) {
     return __buildObj(results, objects);
   } else if (_.isArray(results)) {
@@ -46,6 +50,13 @@ module.exports = function(results, objects, strict) {
       }
     });
 
-    return (strict) ? _(obj).omitBy(_.isEmpty).omitBy(_.isUndefined).omitBy(_.isNull).value() : obj;
+    if (strict) {
+      _.forOwn(obj, function(value, key) {
+        if (!value && _.includes(objects, key))
+          delete obj[key];
+      });
+    }
+
+    return (strict) ? _(obj).omitBy(predicate).value() : obj;
   }
 };
