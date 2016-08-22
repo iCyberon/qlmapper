@@ -19,7 +19,7 @@ module.exports = function(results, objects, strict) {
     return _.isEmpty(value) && _.isObject(value);
   };
 
-  if (_.isPlainObject(results)) {
+  if (_.isObject(results)) {
     return __buildObj(results, objects);
   } else if (_.isArray(results)) {
     var res = [];
