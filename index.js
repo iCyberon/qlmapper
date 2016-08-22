@@ -19,14 +19,14 @@ module.exports = function(results, objects, strict) {
     return _.isEmpty(value) && _.isObject(value);
   };
 
-  if (_.isObject(results)) {
-    return __buildObj(results, objects);
-  } else if (_.isArray(results)) {
+  if (_.isArray(results)) {
     var res = [];
     for (var i = 0; i < results.length; i++) {
       res.push(__buildObj(results[i],objects));
     }
     return res;
+  } else if (_.isObject(results)) {
+    return __buildObj(results, objects);
   } else {
     return (strict) ? undefined : {};
   }
