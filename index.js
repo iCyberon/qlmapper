@@ -16,7 +16,7 @@ module.exports = function(results, objects, strict) {
       return results;
 
   var predicate = function(value, index, array) {
-    return _.isEmpty(value) && _.isObject(value);
+    return _.isEmpty(value) && _.isPlainObject(value);
   };
 
   if (_.isArray(results)) {
