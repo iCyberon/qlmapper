@@ -1,6 +1,6 @@
 {
   "name": "qlmapper",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Generate objects from SQL output with grouping and mapping.",
   "url": "https://github.com/icyberon/qlmapper",
   "contributors": [
