@@ -43,7 +43,7 @@ module.exports = function(results, objects, strict) {
     _.forOwn(results, function(value, key) {
       var matches = r.exec(key);
       if (matches !== null && _.has(obj, matches[1]) && matches.length == 3 && matches[1].length > 0 && matches[2].length > 0) {
-        if (strict) {
+        if (!strict) {
           obj[matches[1]][matches[2]] = value;
         } else if (typeof value !== "undefined" && value != null) {
           obj[matches[1]][matches[2]] = value;
